@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org" th:replace="user/UserBase::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating Contact</title>
+
+    <!-- <link rel="stylesheet" href="/contact_form.css"> -->
+
+    <!-- =============== CDN link for Icons ================== -->
+    <!-- <script src="https://kit.fontawesome.com/411d3a6a19.js" crossorigin="anonymous"></script> -->
+
+    <!-- =========================== TinyMce Editor Script Code ========================================== -->
+<!--     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ -->
+
+
+</head>
+<body>
+	
+	
+	
+    <section id="contact-form-section">
+		
+        <h1 id="contact-heading">Update Contact</h1>
+        
+        <div th:text="${contactUpdated}" style="width: 80%;
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+    margin: auto;
+    border-radius: 10px;
+    border-width: medium;
+    color: cornflowerblue;
+    font-size: larger;"></div>
+
+
+        <form  id="contact-form"
+        
+         th:action="@{'/user/Update-Contact'}"
+          enctype="multipart/form-data"
+          method="post"
+          th:object="${contact}">
+            
+            
+
+             <!--=========================== Contact Name Field ================================== -->
+           <div>
+                <label for="name"><i class="fa-sharp fa-solid fa-plus"></i></label>
+                <input type="text" class="" placeholder="Enter Contact Name" th:value="${contact.name}" name="name"  th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ' '">
+           
+            <div class="alert alert-danger invalid-feedback" role="alert">
+            <div th:each="e : ${#fields.errors('name')}" th:text="${e}"></div>
+			</div>
+           
+			</div>
+			
+			
+			
+			
+			
+    
+             <!--=========================== Nick Name Field ================================== -->
+            <div>
+            <label for="nickname"><i class="fa-solid fa-address-card"></i></label>
+            <input type="text" placeholder="Enter Nick Name" name="nickname" th:value="${contact.nickname}">
+        </div>
+
+             <!--=========================== Phone Number Field ================================== -->
+         <div>
+            <label for="number"><i class="fa-solid fa-phone"></i></label>
+            <input type="text" class="" placeholder="Enter Mobile Number" name="number" th:classappend="${#fields.hasErrors('number')} ? 'is-invalid':' '"  th:value="${contact.number}">
+        		
+        	<div class="alert alert-danger invalid-feedback" role="alert">
+            <div th:each="e : ${#fields.errors('number')}" th:text="${e}"></div>
+			</div>
+        
+        </div>
+
+            <!-- =========================== Contact Email Field ==================================--> 
+            <div>
+            <label for="contactEmail"><i class="fa-solid fa-envelope"></i></label>
+            <input type="text" placeholder="Enter Email Address" name="contactEmail"  th:value="${contact.contactEmail}">
+        </div>
+             <!--=========================== Work Field ================================== -->
+            <div>           
+            <label for="work"><i class="fa-sharp fa-solid fa-briefcase"></i></label>
+            <input type="text" placeholder="Enter Work" name="work"  th:value="${contact.work}">
+        </div>
+             <!--=========================== Description Field ================================== -->
+            <textarea name="description" id="mytextarea" cols="40" rows="4" placeholder="Description"  th:text="${contact.description}"></textarea>
+            
+            
+            <div class="container" >
+				<img src=""th:src="@{'/images/'+${contact.img}}" alt=""style="heigth:1rem;width: 2rem;" />
+			</div>
+            
+            
+            <!-- =========================== Contact Image Field ================================== -->
+            <input type="file" name="contactImg" id="contact-img">
+
+            <div id="buttons">
+            <!-- =========================== Submit Button ================================== -->
+            <button type="submit" id="submit-button">Update</button>
+
+             <!--=========================== Reset Button ================================== -->
+            <button type="reset" id="reset-button">Reset</button>
+        </div>
+        </form>
+    
+
+
+
+
+
+</section>
+</body>
+</html>

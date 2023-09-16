@@ -1,0 +1,85 @@
+#contact-form-section{
+      width: 70%;
+    height: 80vh;
+    border: thin;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 4px 4px;
+    margin-top: 2%;
+    margin-left: 14%;
+    
+
+}
+
+#contact-heading{
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#contact-form div {
+    width: 85%;
+    margin-left: 10%;
+    
+}
+
+
+#contact-form div input{
+    width: 80%;
+    padding: .25rem;
+    margin: .2rem .2rem;
+    border: none;
+    border-bottom: 2px solid blue;
+    
+
+}
+
+#contact-form  textarea{
+    width: 74%;
+    padding: .25rem;
+    margin: .2rem .2rem;
+    margin-top: 1rem;
+}
+
+
+#contact-form #contact-img{
+    width: 76%;
+    margin: .7rem 0;
+}
+
+#contact-form #buttons{
+    display: flex;
+    margin-right: 10%;
+    justify-content: center;
+    margin: .5rem 0;
+}
+
+
+#contact-form #buttons #submit-button{
+    padding: .3rem;
+    margin: 0 .5rem;
+    width: 30%;
+    border-radius: .8rem;
+    /* color: blue; */
+    /* background-color: rgb(136, 136, 231); */
+}
+
+#contact-form #buttons #reset-button{
+    padding: .3rem;
+    margin: 0 .5rem;
+    width: 30%;
+    border-radius: .8rem;
+}
+

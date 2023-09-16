@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org" th:replace="user/UserBase::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Contacts</title>
+	
+</head>
+
+<body>
+
+	<section>
+
+
+
+		<div th:if="${zeroContacts}" style="margin-top: 22rem;" class="container h3 text-center mt-6">
+
+			<div class="alert alert-dark align-middle" role="alert" th:text="${AddContacts}"></div>
+
+			<div>
+
+				<a href="" class="btn btn-secondary" th:href="@{/user/AddContactForm}">Add Contact</a>
+
+			</div>
+		</div>
+
+
+
+		<!-- ===================================== Table that contains the contacts data ================================= -->
+		
+		<table class="table" border="1">
+			<h1 style="margin-top: 10px; margin-bottom: 15px;"><center>My Contacts</center></h1>
+			<thead>
+				<tr>
+					<th scope="col">#ID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Number</th>
+					<th scope="col">Nick Name</th>
+					<th scope="col" colspan="2"><center>Actions</center></th>
+					
+				</tr>
+			</thead>
+			<tbody th:each="c : ${contacts}">
+				<tr>
+					<th scope="row" th:text="${'20CS'+c.contactId}"></th>
+					<td width="20%" > <img src="" th:src="@{'/images/'+${c.img}}" alt="" class="profile" />
+						<span th:text="${c.name}"></span></td>
+					<td> <a href="" th:text="${c.contactEmail}" th:href="@{'/user/AllContactDetails/'+${c.contactId}}"></a> </td>
+					<td th:text="${c.number}"></td>
+					<td th:text="${c.nickname}"></td>
+					
+					
+					
+					
+					<!--========================= Update Button =================================-->
+					<form action="" th:action="@{'/user/update/'+${c.contactId}}" method="post">
+					<td><button type="submit">Update</button></td>
+					</form>
+					
+					
+					
+					
+					 	
+					<td><a class="btn btn-danger"  th:onclick="|deleteContact(${c.contactId})|" >Delete</a></td>
+				
+				
+				
+				
+				
+				
+				</tr>
+			</tbody>
+		</table>
+
+
+		<!-- =========================================== Pagination Portion ==================================== -->
+		<nav aria-label="Page navigation example">
+
+
+
+
+			<ul class="pagination " style="justify-content:center; margin-right:20px;">
+
+				<li class="page-item"><a class="page-link" href="#"
+						th:href="${CurrentPageNo}>1? ${CurrentPageNo}-1 : '' ">Previous
+					</a></li>
+
+				<li class="page-item"><a class="page-link" style="width:150px; text-align:center;" href="#"> <span
+							th:text="${CurrentPageNo}+' of '+ ${TotalPages}"></span></a></li>
+				<li class="page-item"><a class="page-link" href="#"
+						th:href="${CurrentPageNo} < ${TotalPages} ? ${CurrentPageNo}+1: ''">Next</a></li>
+			</ul>
+
+		</nav>
+
+
+
+	</section>
+
+
+
+</body>
+
+</html>

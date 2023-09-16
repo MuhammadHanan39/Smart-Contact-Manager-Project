@@ -1,0 +1,187 @@
+<!doctype html>
+
+
+<html lang="en" xmlns:th="http//www.thymeleaf.org" th:fragment="layout(content)">
+
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==== The Title Name that is dynamically inject with respect to its dynamic page name ======= -->
+<title th:text="${pageName}"></title>
+
+<!-- ======================== BootStrap Link ==================== -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+	crossorigin="anonymous">
+	
+<!-- =================== This links the Css of Dashboard Page ================ -->	
+<link rel="stylesheet" th:href="@{/css/UserBase.css}" >
+
+
+<!-- ===================  links for Css of addContact Page ================ -->	
+<link rel="stylesheet" th:href="@{/css/addContact.css}" />
+
+
+
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+<!-- === Navbar of the Base Page that is distributed to all other pages that are concern with it == -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="    padding: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;">
+ 
+  <div class="container-fluid">
+  
+  	<!-- =========================== Heading of the Project ========================== -->
+    <a class="navbar-brand" href="#">Smart Contact Manager</a>
+    
+  <!-- ==================== Div for Buttons that are placed at right top ================ -->
+    <div style="display:flex;">
+    
+    <!-- =========================  Dashboard Anchor =================-->
+      <div class="d-flex " style="margin-right:1rem" >
+        <a class="btn btn-success "th:href="@{/user/dashboard}">Dashboard</a>
+      </div>
+    
+   
+      <!-- =========================  Dynamic User Name Anchor =================-->
+      <div class="d-flex " style="margin-right:1rem" >
+        <a class="btn btn-success " th:text="${user.userName}"></a>
+      </div>
+      
+      <!-- =========================  Logout Anchor =================-->
+      <div class="d-flex " style="margin-right:1rem" role="logout">
+        <a class="btn btn-danger "th:href="@{/logout}">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ========================== End of the base navbar ======================= -->
+
+
+<!-- ================================ Side Bar ==================================-->
+ <!-- <section class="dashboard"> -->
+        
+        
+	<!-- <span class=" ham-burger"> <i class="fa-solid fa-bars"></i></span> -->
+    <div class="side-bar">
+		
+        <div class="ham-burger"><i class="fa-solid fa-bars"></i></div>
+
+        <a  th:href="@{/user/dashboard}" href="#"><i class="fa-solid fa-house"></i>Dashboard</a>
+        <a th:href="@{/user/showContacts/1}"href="#" ><i class="fa-solid fa-address-book"></i>View Contact</a>
+        <a th:href="@{/user/AddContactForm}"href="#"><i class="fa-solid fa-user-plus"></i>Add Contacts</a>
+        <a th:href="@{/user/dashboard}" href="#"><i class="fa-solid fa-user"></i>Your Profile</a>
+        <a href="#"><i class="fa-solid fa-gears"></i>Settings</a>
+        <a th:href="@{/logout}"href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        
+    </div>
+	
+
+
+ <!--    </section> -->
+
+
+<div class="content-div" >
+
+<!-- ========= Content of Pages are dynamically inject in this section =======-->
+<section th:replace="${content}" >
+
+	
+
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ -->
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+		
+		
+		
+		
+<script language="JavaScript" type="text/javascript" src="/js/dashboard.js"></script>
+		
+		
+		
+		
+		<!-- =============== CDN link for Icons ================== -->
+    <script src="https://kit.fontawesome.com/411d3a6a19.js" crossorigin="anonymous"></script>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
+    
+    
+    <script>
+		function deleteContact(cId){
+			Swal.fire({
+  title: 'Are you sure?',
+  text: "You want to delete this contact..",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    
+    window.location="/user/deleteContact/"+cId;
+    
+  }
+})
+		}
+	
+		
+		
+	</script>
+    
+    
+    
+		
+
+</body>
+
+
+
+
+</html>

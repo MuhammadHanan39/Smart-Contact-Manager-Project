@@ -1,0 +1,18 @@
+
+#home-h1{
+ 
+    font-size: 2.3rem;
+    padding: .5rem;
+    background-color: aliceblue;
+    text-align: center;
+    color: black;
+    margin-top: 20%;
+}
+
+#home-section{
+	background: url(/images/Home.png);
+	border:dotted; 
+	border-color:white;
+	height:90vh;
+    background-size: cover;
+}
