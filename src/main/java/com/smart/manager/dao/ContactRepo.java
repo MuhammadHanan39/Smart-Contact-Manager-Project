@@ -5,6 +5,7 @@ package com.smart.manager.dao;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -14,7 +15,7 @@ import com.smart.manager.entities.Contacts;
 
 import jakarta.transaction.Transactional;
 
-public interface ContactRepo extends PagingAndSortingRepository<Contacts, Integer> {
+public interface ContactRepo extends PagingAndSortingRepository<Contacts, Integer>,JpaRepository<Contacts, Integer> {
 	
 	@Query(value="from Contacts as c where c.user.userId =:uId")
 	public Page<Contacts> findAllContacts(@Param("uId") Integer userId, Pageable pageable);

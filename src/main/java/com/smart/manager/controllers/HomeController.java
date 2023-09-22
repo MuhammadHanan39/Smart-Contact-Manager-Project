@@ -66,7 +66,7 @@ public class HomeController {
 		// Now when everything is fine now saving the data in to database
 		user.setEnable(true);
 		user.setRole("ROLE_USER");
-		user.setUserImg("default.img");
+		user.setUserImg("default.jpg");
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 
 		try {

@@ -1,0 +1,40 @@
+#dashboard-section{
+	width: 95%;
+	height: 60vh;
+	background-color:black;
+	border-radius: .5rem;
+}
+
+
+#dashboard-section img{
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	border: 2px solid red;
+}
+
+
+#dashboard-section h3{
+	color: burlywood;
+}
+
+
+#dashboard-section form button{
+	
+	width:90%;
+	display: block;
+	margin: 0 auto;
+	color: white;
+	text-decoration: none;
+	background-color: blue;
+	/*display: block;
+	width:90%;
+	height: 50px;
+	margin: 0 auto;
+	text-decoration: none;
+	color: white;
+	background-color: blue;
+	border: 2px solid red;
+	border-radius: 8px;*/
+}
+

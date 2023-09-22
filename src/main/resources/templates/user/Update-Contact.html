@@ -43,7 +43,7 @@
           method="post"
           th:object="${contact}">
             
-            
+            <input type="hidden" th:value="${contact.contactId}"name="contactId" />
 
              <!--=========================== Contact Name Field ================================== -->
            <div>

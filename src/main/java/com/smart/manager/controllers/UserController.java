@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -47,17 +47,30 @@ public class UserController {
 		User user = this.projectRepo.findByUserName(userName);
 
 		model.addAttribute("user", user);
-
 	}
 
+	
+	
+	
+//	======== Setting up the Dashboard of Project =========
 	@GetMapping("/dashboard")
 	public String dashboardHandler(Principal principal, Model model) {
-
+		
+		
+//		Making Dashboard page title with its specific user e.g: Hanan-Dashboard
 		String userName = principal.getName();
 		User user = this.projectRepo.findByUserName(userName);
-
 		model.addAttribute("pageName", user.getUserName() + "-Dashboard");
-
+		
+		
+		
+		model.addAttribute("user",user);
+		
+		
+		
+		
+		
+		
 		System.out.println("Dashboard Handler");
 		return "user/dashboard";
 
@@ -217,10 +230,10 @@ public class UserController {
 	/* ============================= Updating the Contact ==================== */
 	@PostMapping("/Update-Contact")
 	public String updatingContact(@Valid @ModelAttribute Contacts contact, BindingResult result,
-			Model m, @RequestParam("contactImg") MultipartFile file) {
+			Model m, @RequestParam("contactImg") MultipartFile file,Principal principal) {
 		
-		m.addAttribute("contactUpdated","Contact is successfully updated");
-		m.addAttribute("contact",contact);
+		
+		
 		
 		
 //		=================== Validation Check ====================
@@ -233,16 +246,29 @@ public class UserController {
 		
 		
 		
+		Optional<Contacts> c = this.contactRepo.findById(contact.getContactId());
+		Contacts pre_Contact =c.get();
+		
+		
 //		=========== If file is empty then It img remains same as previous ============
 		if(file.isEmpty()) {
 			System.out.print("File remain same");
+			contact.setImg(pre_Contact.getImg());
 			
 		}
 		else {
 		try {
+			
+			
+//			========= Deleting the previous image ==============
+			File dltFile= new ClassPathResource("/static/images").getFile();
+			File preFile= new File(dltFile,pre_Contact.getImg());
+			preFile.delete();
+			
+			
+//			=========== Saving new File ===========
 			String contactImgName = file.getOriginalFilename();
 			contact.setImg(contactImgName);
-
 			File saveFile = new ClassPathResource("/static/images/").getFile();
 			Path path = (Path) Paths.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename());
 			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
@@ -255,9 +281,34 @@ public class UserController {
 		
 		}
 		
+//		Question: How to delete the previous img of contact if user inputs the new one
 		
-		return "user/Update-Contact";
+//		Need to understand this problem that how contact user id becomes null and why we have to add user again in order to userId
+		User u= this.projectRepo.findByUserName(principal.getName());
+		contact.setUser(u);
+		this.contactRepo.save(contact);
+		m.addAttribute("contactUpdated","Contact is successfully updated");
+		m.addAttribute("contact",contact);
+		return "redirect:/user/AllContactDetails/"+contact.getContactId();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

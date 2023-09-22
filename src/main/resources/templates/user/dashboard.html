@@ -6,19 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- =============================== Style Sheet ===================================== -->
-    
-
-    
-    
     <title ></title>
 </head>
 <body>
     
+    
+    
+    
+    
    
 
-   <section>
-   	 <h1 class="username" th:text="${user.userName}"></h1>
+   <section id="dashboard-section">
+	   
+	   <center><img src="" th:src="@{'/images/'+${user.userImg}}" /></center>
+	   <center><h3>Start Adding your contacts on cloud...</h3></center>
+	   <form action="" th:action="@{/user/AddContactForm}">
+		   <button type="submit">ADD NEW CONTACT</button>
+	   </form>
+	   <!--<a href="" th:href="">Add New Contact</a>-->
+	   
+	   
+	   
+	   
+	   
+   	 <!--<h1 class="username" th:text="${user.userName}"></h1>-->
    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
