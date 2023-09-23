@@ -9,11 +9,11 @@
 
 <body>
 
-	<section>
+	<section >
 
 
 
-		<div th:if="${zeroContacts}" style="margin-top: 22rem;" class="container h3 text-center mt-6">
+		<div th:if="${zeroContacts}" style="margin-top: 22rem; " class="container h3 text-center mt-6">
 
 			<div class="alert alert-dark align-middle" role="alert" th:text="${AddContacts}"></div>
 
@@ -28,8 +28,8 @@
 
 		<!-- ===================================== Table that contains the contacts data ================================= -->
 		
-		<table class="table" border="1">
-			<h1 style="margin-top: 10px; margin-bottom: 15px;"><center>My Contacts</center></h1>
+		<table class="table" border="1" style="border:2px solid #C5C6C7; color:burlywood ; background-color: #1F2833;">
+			<h1 style="margin-top: 50px; margin-bottom: 15px;"><center>My Contacts</center></h1>
 			<thead>
 				<tr>
 					<th scope="col">#ID</th>
@@ -46,7 +46,7 @@
 					<th scope="row" th:text="${'20CS'+c.contactId}"></th>
 					<td width="20%" > <img src="" th:src="@{'/images/'+${c.img}}" alt="" class="profile" />
 						<span th:text="${c.name}"></span></td>
-					<td> <a href="" th:text="${c.contactEmail}" th:href="@{'/user/AllContactDetails/'+${c.contactId}}"></a> </td>
+					<td> <a href="" th:text="${c.contactEmail}" th:href="@{'/user/AllContactDetails/'+${c.contactId}}" style="color: #66FCF1;"></a> </td>
 					<td th:text="${c.number}"></td>
 					<td th:text="${c.nickname}"></td>
 					
@@ -55,7 +55,7 @@
 					
 					<!--========================= Update Button =================================-->
 					<form action="" th:action="@{'/user/update/'+${c.contactId}}" method="post">
-					<td><button type="submit">Update</button></td>
+					<td><button type="submit" style="padding: 5px; border-radius: 8px; width: 80px;background-color: #4E4E50;color: #66FCF1;border: none;">Update</button></td>
 					</form>
 					
 					
@@ -75,7 +75,7 @@
 
 
 		<!-- =========================================== Pagination Portion ==================================== -->
-		<nav aria-label="Page navigation example">
+		<nav aria-label="Page navigation example" >
 
 
 
@@ -83,13 +83,13 @@
 			<ul class="pagination " style="justify-content:center; margin-right:20px;">
 
 				<li class="page-item"><a class="page-link" href="#"
-						th:href="${CurrentPageNo}>1? ${CurrentPageNo}-1 : '' ">Previous
+						th:href="${CurrentPageNo}>1? ${CurrentPageNo}-1 : '' " style="background-color: #4E4E50;color: #66FCF1;">Previous
 					</a></li>
 
-				<li class="page-item"><a class="page-link" style="width:150px; text-align:center;" href="#"> <span
+				<li class="page-item"><a class="page-link" style="width:150px; text-align:center;background-color: #4E4E50;color: #66FCF1;" href="#" > <span
 							th:text="${CurrentPageNo}+' of '+ ${TotalPages}"></span></a></li>
 				<li class="page-item"><a class="page-link" href="#"
-						th:href="${CurrentPageNo} < ${TotalPages} ? ${CurrentPageNo}+1: ''">Next</a></li>
+						th:href="${CurrentPageNo} < ${TotalPages} ? ${CurrentPageNo}+1: ''" style="background-color: #4E4E50;color: #66FCF1;">Next</a></li>
 			</ul>
 
 		</nav>

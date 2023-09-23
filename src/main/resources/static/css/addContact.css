@@ -1,10 +1,10 @@
 #contact-form-section{
       width: 70%;
-    height: 80vh;
+    height: 100%;
     border: thin;
     border-radius: 0.5rem;
     box-shadow: 1px 1px 4px 4px;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 14%;
     
 
@@ -25,6 +25,25 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+#contact-form input{
+	background:transparent ;
+	color: white;
+}
+#contact-form textarea{
+	background:transparent ;
+	color: white;
+	
+}
+#contact-form textarea::placeholder{
+	color: burlywood;
+}
+
+
+
+#contact-form input::placeholder{
+	
+	color: burlywood;
 }
 
 

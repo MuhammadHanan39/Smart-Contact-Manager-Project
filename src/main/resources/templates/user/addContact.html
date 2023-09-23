@@ -22,19 +22,19 @@
         <h1 id="contact-heading">Add Contact</h1>
         <div th:text="${contactAdded}" style="width: 80%;
     text-align: center;
-    border-color: black;
+    border-color: #66FCF1;
     border-style: solid;
     margin: auto;
     border-radius: 10px;
-    border-width: medium;
-    color: cornflowerblue;
+    border-width: 2px;
+    color: burlywood;
     font-size: larger;"></div>
 
         <form  id="contact-form"
          th:action="@{/user/addContactDetails}"
           enctype="multipart/form-data"
           method="post"
-          th:object="${contact}">
+          th:object="${contact}" >
             
             
 
@@ -85,14 +85,19 @@
             <textarea name="description" id="mytextarea" cols="40" rows="4" placeholder="Description"></textarea>
             
             <!-- =========================== Contact Image Field ================================== -->
-            <input type="file" name="contactImg" id="contact-img">
+            <label for="contact-img" style="display: inline-block;cursor: pointer; background-color: #4E4E50;color: #66FCF1;
+        border:none;text-align:center; font-size:16px;     padding: 0.3rem;
+    	margin-right:auto;
+    	margin-left:90px;
+    width: 130px;
+    border-radius:5px"><input type="file" name="contactImg" id="contact-img" style="display:none;">Upload Profile</label>
 
             <div id="buttons">
             <!-- =========================== Submit Button ================================== -->
-            <button type="submit" id="submit-button">Submit</button>
+            <button type="submit" id="submit-button" style="background-color: #4E4E50;color: #66FCF1;border:none;">Submit</button>
 
             <!-- =========================== Reset Button ================================== -->
-            <button type="reset" id="reset-button">Reset</button>
+            <button type="reset" id="reset-button"style="background-color: #4E4E50;color: #66FCF1;border:none;">Reset</button>
         </div>
         </form>
     

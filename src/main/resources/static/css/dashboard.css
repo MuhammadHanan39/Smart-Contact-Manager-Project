@@ -1,16 +1,17 @@
 #dashboard-section{
 	width: 95%;
-	height: 60vh;
-	background-color:black;
+	height: 87vh;
 	border-radius: .5rem;
+	overflow-y: hidden;
 }
 
 
 #dashboard-section img{
+	margin-top: 3rem;
 	width: 250px;
 	height: 250px;
 	border-radius: 50%;
-	border: 2px solid red;
+	border: 5px solid #66FCF1;
 }
 
 
@@ -24,17 +25,11 @@
 	width:90%;
 	display: block;
 	margin: 0 auto;
-	color: white;
+	margin-top: 2rem;
+	color: #66FCF1;
 	text-decoration: none;
-	background-color: blue;
-	/*display: block;
-	width:90%;
-	height: 50px;
-	margin: 0 auto;
-	text-decoration: none;
-	color: white;
-	background-color: blue;
-	border: 2px solid red;
-	border-radius: 8px;*/
+	background-color: #4E4E50;
+	padding: .4rem;
+	border-radius: 2rem;
 }
 

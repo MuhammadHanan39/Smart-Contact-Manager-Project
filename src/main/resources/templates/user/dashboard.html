@@ -19,6 +19,7 @@
    <section id="dashboard-section">
 	   
 	   <center><img src="" th:src="@{'/images/'+${user.userImg}}" /></center>
+	   <center><h3 style="margin-top: 1rem;margin-bottom: 1rem;">Welcome <span th:text="${user.userName}"></span></h3></center>
 	   <center><h3>Start Adding your contacts on cloud...</h3></center>
 	   <form action="" th:action="@{/user/AddContactForm}">
 		   <button type="submit">ADD NEW CONTACT</button>

@@ -1,7 +1,9 @@
 body{
     margin: 0;
     box-sizing: border-box;
-    padding-left: 0rem; 
+    padding-left: 0rem;
+    background-color:  #0B0C10; 
+    color: #66FCF1;
 
 }
 
@@ -21,7 +23,7 @@ body{
     padding: 2.5rem;
     height: 100%;
     width: 300px;
-    background-color: #DDEFFD;
+    background-color: #1F2833;
     /* position: relative; */
 }
 
@@ -29,7 +31,7 @@ body{
 .side-bar a{
 display: block;
 text-decoration: none;
-color: black;
+color: #66FCF1;
 font-size: 1.3rem;
 padding: .5rem;
 

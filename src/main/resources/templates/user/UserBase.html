@@ -39,28 +39,34 @@
 
 
 <!-- === Navbar of the Base Page that is distributed to all other pages that are concern with it == -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="    padding: 20px;
+<nav class="navbar navbar-expand-lg" style="    padding: 20px;
     position: sticky;
     top: 0;
-    left: 0;">
+    left: 0;
+    border: 2px solid #66FCF1;
+    border-radius: 10px;
+    background-color: #161616;
+     	">
  
   <div class="container-fluid">
   
   	<!-- =========================== Heading of the Project ========================== -->
-    <a class="navbar-brand" href="#">Smart Contact Manager</a>
+    <a class="navbar-brand" href="#" style="color: #66FCF1;">Smart Contact Manager</a>
     
   <!-- ==================== Div for Buttons that are placed at right top ================ -->
     <div style="display:flex;">
     
     <!-- =========================  Dashboard Anchor =================-->
       <div class="d-flex " style="margin-right:1rem" >
-        <a class="btn btn-success "th:href="@{/user/dashboard}">Dashboard</a>
+        <a class="btn btn-success "th:href="@{/user/dashboard}" style="background-color: #4E4E50;color: #66FCF1;
+        border: none;">Dashboard</a>
       </div>
     
    
       <!-- =========================  Dynamic User Name Anchor =================-->
       <div class="d-flex " style="margin-right:1rem" >
-        <a class="btn btn-success " th:text="${user.userName}"></a>
+        <a class="btn btn-success " th:text="${user.userName}" style="background-color: #4E4E50;color: #66FCF1;
+        border: none;"></a>
       </div>
       
       <!-- =========================  Logout Anchor =================-->

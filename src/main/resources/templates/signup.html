@@ -11,24 +11,24 @@
   <!-- body starts from here -->
   
   <body >
-  <section style="background-color:white;">
+  <section>
   
-  <div style="margin-top:70px;"></div>
+  <div style="margin-top:30px;"></div>
   <!-- style="background-color:#B49FBD; #685091" -->
   
-  <form class="m-auto p-5" style="width:42%;  background-color:white; color:#3AAF9F; border-radius:40px; font-size:18px; min-width:400px;border-style: solid; border-color:#3AAF9F;"
+  <form class="mx-auto" style="width:42%;  background-color:#4E4E50; color:#3AAF9F; font-size:16px; min-width:400px;padding: 30px; border:2px solid white"
   th:action="@{/dashboard}" th:object="${user}" th:method="post">
   
   	<!-- Register here text of the form -->
   	
-  <div class="text-center"> <h1>Register Here</h1></div>
+  <div class="text-center"> <h2>Register Here</h2></div>
   <div class="text-center alert-success" th:text="${registerSuccess}"></div>
   <div class="text-center" style="color:red;" th:text="${signupException}"></div>
   <!-- Name Field of the form -->
   
-  <div class="mb-3">
+  <div class="mb-2">
     <label for="exampleInputName" class="form-label">Enter Name</label>
-    <input type="text" class="form-control" id="exampleInputName" placeholder="Enter Name"
+    <input type="text" class="form-control" id="exampleInputName" placeholder="Enter Name" 
     
     name="userName" th:value="${user.userName}" th:classappend="${#fields.hasErrors('userName')} ? 'is-invalid' : ' '">
     
@@ -40,7 +40,7 @@
   
   <!-- Email field of the form -->
   
-  <div class="mb-3">
+  <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Enter Email"
     
@@ -54,7 +54,7 @@
   
   <!-- Password field of the form -->
   
-  <div class="mb-3">
+  <div class="mb-2">
     <label for="exampleInputPassword1" class="form-label" >Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"
     
@@ -69,9 +69,9 @@
   
   <!-- Text Area field of the form -->
   
-  <div class="mb-3">
+  <div class="mb-2">
   <label for="exampleFormControlTextarea1" class="form-label">Write About Yourself</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Tell Us About Yourself" 
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell Us About Yourself" 
   
   name="about" th:text="${user.about}"></textarea>
 </div>
@@ -79,7 +79,7 @@
 
 <!-- check field of the form -->
 
-  <div class="mb-3 form-check">
+  <div class="mb-2 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" 
     name="agreement" >
     <label class="form-check-label" for="exampleCheck1">agree terms and conditions </label>
@@ -88,7 +88,7 @@
   
   
   <!-- Submit button of the form -->
-  <button type="submit" class="btn btn-primary bt-center" style="background-color:#3AAF9F; margin: 0 40%; width:100px; font-size:17px; ">Submit</button>
+  <button type="submit" class="btn btn-primary bt-center" style="background-color: #1A1A1D;color: #66FCF1;border:none; margin: 0 40%; width:100px; font-size:17px; ">Submit</button>
   
   
   
