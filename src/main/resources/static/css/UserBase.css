@@ -83,4 +83,48 @@ padding: .5rem;
 	object-fit: cover;
 }
 
+/*  ====================== CSS of All Contacts.html ============*/
+.table{
+	border:2px solid #C5C6C7;
+	color:burlywood ;
+	background-color: #1F2833;
+}
+
+.table #contact-heading{
+	margin-top: 50px; 
+	margin-bottom: 15px;
+}
+
+.search-container{
+	position: relative;
+}
+
+#search-bar{
+	display: block;
+	margin-left: auto;
+	border: 1px solid white;
+	width: 280px; 
+	margin-bottom:8px;
+	margin-right:8px;
+	text-align: center; 
+	background:transparent;
+	color: burlywood;
+}
+
+#search-result{
+	position: absolute;
+	z-index:1000;
+	background-color: #1F2833;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
 
