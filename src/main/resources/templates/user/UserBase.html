@@ -29,6 +29,20 @@
 <!--====================== User Dashboard css =====================-->
 <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
 
+
+<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </head>
 
 
@@ -88,11 +102,11 @@
 		
         <div class="ham-burger"><i class="fa-solid fa-bars"></i></div>
 
-        <a  th:href="@{/user/dashboard}" href="#"><i class="fa-solid fa-house"></i>Dashboard</a>
-        <a th:href="@{/user/showContacts/1}"href="#" ><i class="fa-solid fa-address-book"></i>View Contact</a>
-        <a th:href="@{/user/AddContactForm}"href="#"><i class="fa-solid fa-user-plus"></i>Add Contacts</a>
-        <a th:href="@{/user/dashboard}" href="#"><i class="fa-solid fa-user"></i>Your Profile</a>
-        <a href="#"><i class="fa-solid fa-gears"></i>Settings</a>
+        <a  th:href="@{/user/dashboard}" href="#" class="active-links" id="dashboard-link"><i class="fa-solid fa-house"></i>Dashboard</a>
+        <a th:href="@{/user/showContacts/1}"href="#" class="active-links" id="viewContact-link" ><i class="fa-solid fa-address-book"></i>View Contact</a>
+        <a th:href="@{/user/AddContactForm}"href="#" class="active-links" id="addContacts-link"><i class="fa-solid fa-user-plus"></i>Add Contacts</a>
+        <a th:href="@{/user/dashboard}" href="#"class="active-links" id="profile-link"><i class="fa-solid fa-user"></i>Your Profile</a>
+        <a href="#" class="active-links" id="settings-link"><i class="fa-solid fa-gears"></i>Settings</a>
         <a th:href="@{/logout}"href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
         
     </div>
@@ -128,19 +142,7 @@
 
 
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+	
 		
 		
 		

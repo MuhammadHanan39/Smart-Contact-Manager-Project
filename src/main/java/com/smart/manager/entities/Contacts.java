@@ -1,6 +1,8 @@
 package com.smart.manager.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +32,7 @@ public class Contacts {
 	private String nickname;
 	private String work;
 	private String img;
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	

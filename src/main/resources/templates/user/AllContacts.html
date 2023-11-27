@@ -35,15 +35,15 @@
 			
 				<!--Search Input-->
 			<div class="search-container" >
-				<input id="search-bar" type="text" placeholder="Search your contact"/>
+				<input id="search-bar" type="text" placeholder="Search your contact" onkeyup="search()"/>
 				
-				<div id="search-result" >	
+				<p id="search-result">	
 				
 					<!-- Result of search -->
 					
+				
 					
-					
-				</div>
+				</p>
 			
 			
 			
@@ -116,7 +116,12 @@
 
 		</nav>
 
-
+		<script>
+			$(document).ready(()=>{
+			 $('.active-links').removeClass('active');
+			 $('#viewContact-link').addClass('active'); 
+		  });
+		</script>
 
 	</section>
 

@@ -3,6 +3,8 @@ package com.smart.manager.dao;
 
 
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,6 +14,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.smart.manager.entities.Contacts;
+import com.smart.manager.entities.User;
 
 import jakarta.transaction.Transactional;
 
@@ -28,4 +31,10 @@ public interface ContactRepo extends PagingAndSortingRepository<Contacts, Intege
 	@Query("delete from Contacts c where c.Id =:id")
 	public void deleteContact(@Param("id") Integer id);
 
+	
+	
+	public List<Contacts> findByNameContainingAndUser(String name,User user);
+	
+	
+	
 }
