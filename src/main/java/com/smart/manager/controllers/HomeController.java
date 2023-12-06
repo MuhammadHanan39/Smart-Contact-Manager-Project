@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.smart.manager.dao.ProjectRepo;
 import com.smart.manager.entities.User;
 import com.smart.manager.service.ProjectServiceClass;
 import jakarta.validation.Valid;
@@ -22,6 +23,8 @@ public class HomeController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	@Autowired
+	private ProjectRepo projectRepo;
 	
 	
 
@@ -112,8 +115,39 @@ public class HomeController {
 	 }
 	
 	
+	 
+	 
+//	 Implementation of forgot password
+	 @GetMapping("/forgotPassword")
+	 public String getEmailFromUser(Model model) {
+		 model.addAttribute("pageName", "Get Email");
+		 return "getEmail";
+	 }
 	
-
+//   User enter the email after that application verifies it that user exist in database or not
+	 @GetMapping("/verifyEmailAndSendOtp")
+	 public String verifyEmailAndSendOtp(@RequestParam("username") String username,Model model) {
+		 
+		 User user=this.projectRepo.findByUserName(username);
+		 
+		 if(user == null) {
+			 model.addAttribute("msg","User with this email doesn't exist");
+			 return "redirect:/forgotPassword";
+		 }else {
+			 //Setting up the java mail api through which I will send the OTP to user's email
+		 
+		 
+		 
+			 return "EnterOtp";
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
+	 }
+	 
 	
 	
 	
