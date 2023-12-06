@@ -12,27 +12,30 @@
 </head>
 <body>	
     <section>
-    	<form  th:action="@{/verifyEmailAndSendOtp}" action="#" method="post">
+    	<form  th:action="@{/verifyOtpAndForgotPassword}" action="#" method="post">
 			
-			<div th:text="${msg}">Hello
-	 			<span style="color: white;z-index: 100;text-align: center;" th:text="${msg}">Hello</span>
+			<div th:if = "${msg} !=''" class="text-center alert alert-success">
+	 			<span style="color: rgb(64, 0, 0);" th:text="${msg}"></span>
 			</div>
-
+	
           <!-- Email input -->
           <div class="form-outline mb-4">
-          <label class="form-label mb-2" for="form3Example3" style="color: burlywood;">Enter Email address</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" name="username"/>   
+          <label class="form-label mb-2" for="form3Example3" style="color: burlywood;">Enter OTP here</label>
+            <input type="number" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter OTP" name="otp"/>   
           </div>
-
-
-			<!--Submit Button-->
+          
+          
+          
+          <!--Submit Button-->
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;background-color: #4E4E50;color: #66FCF1;border:none;">Send</button>
+              style="padding-left: 2.5rem; padding-right: 2.5rem;background-color: #4E4E50;color: #66FCF1;border:none;">Verify OTP</button>
 			</div>
-
-
+			
+			
+			
+			
         </form>
     </section>
 </body>

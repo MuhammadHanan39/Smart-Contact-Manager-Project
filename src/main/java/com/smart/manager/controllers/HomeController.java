@@ -1,6 +1,7 @@
 package com.smart.manager.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties.Reactive.Session;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.smart.manager.dao.ProjectRepo;
 import com.smart.manager.entities.User;
+import com.smart.manager.service.EmailSenderServiceClass;
 import com.smart.manager.service.ProjectServiceClass;
 import jakarta.validation.Valid;
 
@@ -25,6 +27,9 @@ public class HomeController {
 	
 	@Autowired
 	private ProjectRepo projectRepo;
+	
+	@Autowired
+	private EmailSenderServiceClass emailSenderServiceClass;
 	
 	
 
@@ -99,13 +104,6 @@ public class HomeController {
 	}
 
 	
-	
-	
-	/*
-	 * @GetMapping("/logout") public String logoutHandler(Model model) {
-	 * 
-	 * model.addAttribute("pageName", "Logout Page"); return "logout"; }
-	 */
 
 	
 	 @GetMapping("/Home")
@@ -125,7 +123,7 @@ public class HomeController {
 	 }
 	
 //   User enter the email after that application verifies it that user exist in database or not
-	 @GetMapping("/verifyEmailAndSendOtp")
+	 @PostMapping("/verifyEmailAndSendOtp")
 	 public String verifyEmailAndSendOtp(@RequestParam("username") String username,Model model) {
 		 
 		 User user=this.projectRepo.findByUserName(username);
@@ -135,17 +133,26 @@ public class HomeController {
 			 return "redirect:/forgotPassword";
 		 }else {
 			 //Setting up the java mail api through which I will send the OTP to user's email
-		 
-		 
-		 
-			 return "EnterOtp";
-		 }
-		 
-		 
-		 
-		 
-		 
-		 
+			 String subject="OTP from smart contact manager";
+			 long otp = (long) (Math.random()*(999999999-999+1)+999);
+			 System.out.println("OTP of your account = "+otp);
+			 String text="OTP = "+otp;
+			 
+			 boolean flag = this.emailSenderServiceClass.sendEmail(username, "hananshaikh20cs039@gmail.com", subject, text);
+			 if(flag) {
+				 model.addAttribute("msg", "We have sent you the OTP on your gmail");
+				 return "EnterOtp";
+			 }else {
+				 System.out.print("Something went wrong");
+				 return "redirect:/forgotPassword";
+			 }	 
+		 }		 
+	 }
+	 
+	 
+	 @PostMapping("/verifyOtpAndForgotPassword")
+	 public String sendForgotPasswordPage() {
+		 return " ";
 	 }
 	 
 	
