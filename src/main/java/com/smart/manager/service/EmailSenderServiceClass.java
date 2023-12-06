@@ -20,14 +20,15 @@ public class EmailSenderServiceClass {
 		boolean flag=false;
 		
 		Properties properties=new Properties();
-		properties.put("mail.smtp.host", "mail.gmail.com");
+		properties.put("mail.smtp.host", "smtp.gmail.com");
 		properties.put("mail.smtp.port",587);
-		properties.put("mail.smtp.starttls",true);
-		properties.put("mail.smtp.auth",true);
+		properties.put("mail.smtp.starttls.enable","true");
+		properties.put("mail.smtp.auth","true");
 		
 		String username="hannanshaikh150";
-		String password="";
+		String password="eviqxqdfpzzzvxgj";
 		
+		//Setting up the session object
 		Session session = Session.getDefaultInstance(properties, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
@@ -47,14 +48,7 @@ public class EmailSenderServiceClass {
 			flag=true;
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
-		
-		
-		
-		
-		
-		
-		
+		}		
 		return flag;
 	}
 	
